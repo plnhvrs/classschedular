@@ -1,15 +1,27 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="">Class Schedular</a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> --></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1"><router-link to="/schedule"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">Schedule</a></router-link></li>
-            <li class="nav-item mx-0 mx-lg-1"><router-link to="/classes"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">Classes</a></router-link></li>
-            <li class="nav-item mx-0 mx-lg-1"><router-link to="/users"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="">Users</a></router-link></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <b-navbar toggleable="md" type="light" variant="light" sticky class="mb-5">
+        <b-navbar-brand to="/">
+            <img src="../assets/favicon-32x32.png" class="d-inline-block align-top" alt="Happy class scheduling">
+            Happy Class Scheduling
+        </b-navbar-brand>
+
+        <b-navbar-toggle target="topMenu">
+            <template v-slot:default="{ expanded }">
+                <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
+                <b-icon v-else icon="chevron-bar-down"></b-icon>
+            </template>
+        </b-navbar-toggle>
+
+        <b-collapse id="topMenu" is-nav>
+            <b-navbar-nav align="right" class="ml-auto">
+
+                <b-nav-item to="/schedule" class="ml-4">Schedule</b-nav-item>
+                <b-nav-item to="/classes" class="ml-4">Classes</b-nav-item>
+                <b-nav-item to="/users" class="ml-4">Users</b-nav-item>
+                <b-nav-item to="/account" class="ml-4">Account</b-nav-item>
+            </b-navbar-nav>
+        </b-collapse>
+
+    </b-navbar>
 </template>
+
