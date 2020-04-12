@@ -18,11 +18,5 @@
 </template>
 
 
-<script>
-
-
-export default {
-  name: 'User'
-
-}
+<script src="../controllers/User.js">
 </script>

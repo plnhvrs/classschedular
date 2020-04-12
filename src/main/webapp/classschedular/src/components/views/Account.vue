@@ -6,7 +6,7 @@
             <b-form>
                 <b-form-group
                         class="mb-1"
-                        label="User name:"
+                        label="Username:"
                         label-for="class-name"
                         description="">
                     <b-form-input
@@ -18,15 +18,22 @@
                 </b-form-input>
                 </b-form-group>
                 <b-form-group
+                        v-if="$currentUser.isAdmin"
                         class="mb-1"
-                        label="Credit:"
-                        label-for="class-credit"
+                        label="Organization name:"
+                        label-for="organization-name"
                         description="">
-                <b-form-input  id="user-credit"
-                               v-model="credit"
-                               type="text"
-                               readonly></b-form-input>
+                    <b-form-input
+                            id="organization-name"
+                            v-model="organization"
+                            type="text"
+                            required
+                            placeholder="Edit your user name">
+                    </b-form-input>
                 </b-form-group>
+                <p v-for="subscription in $currentUser.subscriptions" :key="subscription.id">
+                    {{subscription.name }} valid from {{subscription.starting}}, untill: {{subscription.ending}} {{ subscription.currentCredit != null ? '(Credit left:' +subscription.currentCredit+') ' : ''}}
+                </p>
                 <br>
                 <b-button variant="primary" class="float-right">Save</b-button>
             </b-form>
@@ -35,10 +42,5 @@
 </template>
 
 
-<script>
-
-export default {
-  name: 'Account',
-  data: function(){return this.$currentUser}
-}
+<script src="../controllers/Account.js">
 </script>

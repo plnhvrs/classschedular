@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TopMenu from './components/TopMenu'
+import TopMenu from './components/views/TopMenu'
 
 
 export default {

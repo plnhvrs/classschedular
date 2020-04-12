@@ -5,10 +5,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 import App from './App.vue'
-import Classes from './components/Classes.vue'
-import Schedule from './components/Schedule.vue'
-import Account from './components/Account.vue'
-import Users from './components/Users.vue'
+import Classes from './components/views/Classes.vue'
+import Subscriptions from './components/views/Subscriptions.vue'
+import Schedule from './components/views/Schedule.vue'
+import Account from './components/views/Account.vue'
+import Users from './components/views/Users.vue'
+import News from './components/views/News.vue'
 
 Vue.config.productionTip = false
 
@@ -30,10 +32,13 @@ Vue.use(FormPlugin);
 import { ToastPlugin } from 'bootstrap-vue'
 Vue.use(ToastPlugin)
 const routes = [
+	{ path: '/' , component: News},
     { path: '/schedule', component: Schedule },
+    { path: '/subscriptions', component: Subscriptions },
     { path: '/classes', component: Classes },
     { path: '/users', component: Users },
-    { path: '/account', component: Account }
+    { path: '/account', component: Account },
+
 
 ];
 
@@ -41,7 +46,8 @@ const router = new VueRouter({
     routes: routes, // short for `routes: routes`
 });
 
-Vue.prototype.$currentUser = {id:1, name:'Pauline', organization:'Pauline BV', roles:['admin','Gevorderd'], credit:3}
+Vue.prototype.$currentUser = {id:1, name:'Pauline', organization:'Pauline BV', roles:['admin','Gevorderd'], credit:3, isAdmin:true,
+subscriptions: [{id:1, name: 'Maandabonnement',currentCredit: null,starting:'01-04-2020', ending:'31-04-2020'}]}
 
 new Vue({
 router,
